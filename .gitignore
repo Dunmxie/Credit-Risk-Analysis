@@ -1,0 +1,12 @@
+# Ignore large data files
+Raw_Data/
+*.csv
+*.zip
+*.xlsx
+
+# Ignore temporary Excel files
+~$*
+
+# System noise
+.DS_Store
+Thumbs.db
