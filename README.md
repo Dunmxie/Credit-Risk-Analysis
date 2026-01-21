@@ -67,7 +67,7 @@ Content: Use bullet points. Mention filtering, handling nulls, and creating Pivo
 ![Power Query Step](images/powerquery_step1.png)
 
 <img width="1918" height="1023" alt="PowerQuery_step1" src="https://github.com/user-attachments/assets/f913b9ff-ed9f-4782-b5e7-efe820c0f2e5" />
-[Power Query Step](images/PowerQuery_Step1.png)
+![Power Query Step](images/PowerQuery_Step1.png)
 
 
 
