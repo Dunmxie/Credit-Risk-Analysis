@@ -64,6 +64,8 @@ The Goal: Show off your Power Query and Excel skills.
 
 Content: Use bullet points. Mention filtering, handling nulls, and creating Pivot Tables.
 
+
+
 5. Analysis & Key Insights
    ## Heading: ## Risk Segmentation & Financial Insights
 
