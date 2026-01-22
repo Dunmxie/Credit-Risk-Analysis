@@ -78,7 +78,8 @@ Content: Use bullet points. Mention filtering, handling nulls, and creating Pivo
 
 **Step 2: Target Cleaning** 
 - Filtered `loan_status` to include only **Fully Paid** and **Charged Off**.
-- - This created a binary target variable (good vs. bad outcome), essential for risk modeling.
+This created a binary target variable (Fully Paid vs. Charged Off), enabling predictive modeling of default risk.
+
 
 ![Power Query Step](images/PowerQuery_step1.png)
 
