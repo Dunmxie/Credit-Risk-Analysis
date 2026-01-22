@@ -74,7 +74,7 @@ Content: Use bullet points. Mention filtering, handling nulls, and creating Pivo
   - Target: `loan_status`
   - Reward: `int_rate`, `loan_amnt`, `installment` - Risk: `grade`, `annual_inc`, `dti`, `fico_range_high`, `emp_length`
   - Context: `purpose`, `home_ownership`, `addr_state`
-   - Used **Remove Other Columns** to drop noise and keep only these fields. 
+- Used **Remove Other Columns** to drop noise and keep only these fields. 
 
 **Step 2: Target Cleaning** 
 - Filtered `loan_status` to include only **Fully Paid** and **Charged Off**.
