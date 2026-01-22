@@ -66,7 +66,19 @@ Content: Use bullet points. Mention filtering, handling nulls, and creating Pivo
 
 
 
+## Technical Methodology: ETL & Data Transformation 
 
+**Step 1: Target Definition** 
+- Imported the LendingClub dataset into Power Query
+- Selected only the relevant "risk driver" columns:
+  - Target: `loan_status`
+  - Reward: `int_rate`, `loan_amnt`, `installment` - Risk: `grade`, `annual_inc`, `dti`, `fico_range_high`, `emp_length`
+  - Context: `purpose`, `home_ownership`, `addr_state`
+   - Used **Remove Other Columns** to drop noise and keep only these fields. 
+
+**Step 2: Target Cleaning** 
+- Filtered `loan_status` to include only **Fully Paid** and **Charged Off**.
+- - This created a binary target variable (good vs. bad outcome), essential for risk modeling.
 
 ![Power Query Step](images/PowerQuery_step1.png)
 
