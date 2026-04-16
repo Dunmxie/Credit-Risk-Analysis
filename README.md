@@ -2,7 +2,7 @@
    
    
    1. Project Title & Executive Summary
-   # LendingClub Portfolio Returns Optimisation
+   # LendingClub Risk-Returns Optimisation
    
    Content: A 3-sentence summary. State the problem (defaults), your action (segmentation), and the result (reduced risk).
    
