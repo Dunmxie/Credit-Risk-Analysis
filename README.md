@@ -1,132 +1,125 @@
-# Credit-Risk-Analysis
-Strategic lending analysis using Excel &amp; Power Query to reduce portfolio default rates through advanced borrower segmentation.
-The Professional README Structure
-Here is the exact layout you should follow, including the specific headings and what goes inside them:
-
-
-1. Project Title & Executive Summary
-# Heading: # Strategic Credit Risk Analysis: Optimizing LendingClub Portfolio Returns
-
-Content: A 3-sentence summary. State the problem (defaults), your action (segmentation), and the result (reduced risk).
-
-Why: Recruiters need to know the "value" immediately.
-
-Title & High-Level Summary
-What it is: A bold project title and a 2-3 sentence "elevator pitch."
-
-The Goal: Tell the reader exactly what the project does in 10 seconds.
-
-Senior Tip: Use the "Strategic Analysis" description we chose earlier.
-
-2. Business Problem Statement  
-## Heading: ## The Challenge: Reducing Default-Related Capital Erosion
-
-Content: Explain that in banking, a 1% decrease in the default rate can mean millions in saved capital. State that your goal is to find the "tipping point" where a borrower becomes too risky.
-
-Business Problem (The "Why")
-What it is: A description of the financial challenge you are solving.
-
-The Goal: Show you understand Banking/FinTech priorities.
-
-Content: Explain that defaults cost money and you are finding ways to prevent them.
-
-3. Data Architecture & Governance   
-## Heading: ## Data Pipeline & Governance
-
-Content: Mention the source (Kaggle) and your .gitignore strategy.
-
-Instruction: TAKE A SCREENSHOT of your organized folder structure (01_Raw, 02_Workbooks) and put it here.
-
-Why: This proves you are organized and understand data security.
-
-Data Source & Governance
-What it is: Where the data came from and how you handled it safely.
-
-The Goal: Prove you are a safe hire (mentioning the .gitignore goes here!).
-
-Content: Link to the Kaggle source and mention your cleaning steps.
-
-4. Methodology (The "ETL" Process)
-   ## Heading: ## Technical Methodology: ETL & Data Transformation
-
-Content: Use bullet points to describe using Power Query.
-
-Step 1: Filtered for completed loan cycles (Fully Paid vs. Charged Off).
-
-Step 2: Feature Engineering (e.g., creating the Debt-to-Income bins).
-
-Instruction: TAKE A SCREENSHOT of your "Applied Steps" in Power Query and place it here.
-
-Methodology (The "How")
-What it is: A step-by-step breakdown of your technical process.
-
-The Goal: Show off your Power Query and Excel skills.
-
-Content: Use bullet points. Mention filtering, handling nulls, and creating Pivot Tables.
-
-
-
-## Technical Methodology: ETL & Data Transformation 
-
-**Step 1: Target Definition** 
-- Imported the LendingClub dataset into Power Query
-- Selected only the relevant "risk driver" columns:
-  - Target: `loan_status`
-  - Reward: `int_rate`, `loan_amnt`, `installment`
-  - Risk: `grade`, `annual_inc`, `dti`, `fico_range_high`, `emp_length`
-  - Context: `purpose`, `home_ownership`, `addr_state`
-- Used **Remove Other Columns** to drop noise and keep only these fields.
-  
-Selected these 12 key variables out of 100+ available features to focus on core credit risk indicators and loan performance metrics.
-
-
-**Step 2: Target Cleaning** 
-- Filtered `loan_status` to include only **Fully Paid** and **Charged Off**.
-
-This created a binary target variable (Fully Paid vs. Charged Off), enabling predictive modeling of default risk.
-
-
-![Power Query Step](images/PowerQuery_step1.png)
-
-
-
-5. Analysis & Key Insights
-   ## Heading: ## Risk Segmentation & Financial Insights
-
-Content: This is the "meat" of the project.
-
-Insight 1: The correlation between FICO scores and default rates.
-
-Insight 2: The impact of DTI (Debt-to-Income) on repayment success.
-
-Instruction: TAKE A SCREENSHOT of your most impactful Pivot Table or Chart. Use "Conditional Formatting" (Red/Green) to make it look professional.
-
-Key Insights & Visuals
-What it is: The "Aha!" moments found in the data.
-
-The Goal: Prove you can translate numbers into Business Intelligence.
-
-Content: Embed screenshots of your charts and explain what they mean for the bank's profit.
-
-6. Final Recommendations (The "Senior" Part)
-   ## Heading: ## Strategic Recommendations
-
-Content: Tell the "bank" what to do.
-
-"Restrict lending to Grade D borrowers with DTI > 35%."
-
-"Adjust interest rates for low-income segments to cover the 5% higher default variance."
-
-Final Recommendations
-What it is: Your advice to the company based on your findings.
-
-The Goal: Show Executive-level thinking.
-
-Content: "We should increase the interest rate for Grade D loans by 1.5% to cover the observed risk."
-
-## Professional Formatting Tips
-Use Markdown: Use # for the main title and ## for sections.
-
-Bold Key Terms: Bold words like Default Rate, Risk Mitigation, and Power Query.
-
-Use Visuals: Never have more than two paragraphs of text without a screenshot or a bulleted list.
+   Here is the exact layout you should follow, including the specific headings and what goes inside them:
+   
+   
+   1. Project Title & Executive Summary
+   # LendingClub Portfolio Returns Optimisation
+   
+   Content: A 3-sentence summary. State the problem (defaults), your action (segmentation), and the result (reduced risk).
+   
+   Why: Recruiters need to know the "value" immediately.
+   
+   Title & High-Level Summary
+   What it is: A bold project title and a 2-3 sentence "elevator pitch."
+   
+   The Goal: Tell the reader exactly what the project does in 10 seconds.
+   
+   Senior Tip: Use the "Strategic Analysis" description we chose earlier.
+   
+   2. Business Problem Statement  
+   ## Quantifying the Risk-Return Threshold
+   In the consumer lending sector, profit is dependent on the precision of the Risk-Return Tradeoff. A marginal increase in the default rate does not just impact interest income; it causes Capital Erosion, where the loss of principal requires significantly more performing loans just to break even.
+   
+   In high-volume lending, a Charged Off loan is a double loss: the bank loses the remaining principal and the operational cost of capital. Because principal losses are so much larger than interest gains, a 100 basis point (1%) reduction in the default rate can save millions in capital. This project focuses on identifying the risk tipping point where borrower leverage begins to outpace interest revenue.
+   
+   The ultimate objective is to move beyond simple yes/no credit decisions. By analysing the correlation between borrower capacity and loan outcome, this analysis provides a roadmap for risk-based pricing, ensuring the institution is adequately compensated for the risk it absorbs.
+   
+   3. Data Architecture & Governance   
+   ## Heading: ## Data Pipeline & Governance
+   
+   Content: Mention the source (Kaggle) and your .gitignore strategy.
+   
+   Instruction: TAKE A SCREENSHOT of your organized folder structure (01_Raw, 02_Workbooks) and put it here.
+   
+   Why: This proves you are organized and understand data security.
+   
+   Data Source & Governance
+   What it is: Where the data came from and how you handled it safely.
+   
+   The Goal: Prove you are a safe hire (mentioning the .gitignore goes here!).
+   
+   Content: Link to the Kaggle source and mention your cleaning steps.
+   
+   4. Methodology (The "ETL" Process)
+      ## Heading: ## Technical Methodology: ETL & Data Transformation
+   
+   Content: Use bullet points to describe using Power Query.
+   
+   Step 1: Filtered for completed loan cycles (Fully Paid vs. Charged Off).
+   
+   Step 2: Feature Engineering (e.g., creating the Debt-to-Income bins).
+   
+   Instruction: TAKE A SCREENSHOT of your "Applied Steps" in Power Query and place it here.
+   
+   Methodology (The "How")
+   What it is: A step-by-step breakdown of your technical process.
+   
+   The Goal: Show off your Power Query and Excel skills.
+   
+   Content: Use bullet points. Mention filtering, handling nulls, and creating Pivot Tables.
+   
+   
+   
+   ## Technical Methodology: ETL & Data Transformation 
+   
+   **Step 1: Target Definition** 
+   - Imported the LendingClub dataset into Power Query
+   - Selected only the relevant "risk driver" columns:
+     - Target: `loan_status`
+     - Reward: `int_rate`, `loan_amnt`, `installment`
+     - Risk: `grade`, `annual_inc`, `dti`, `fico_range_high`, `emp_length`
+     - Context: `purpose`, `home_ownership`, `addr_state`
+   - Used **Remove Other Columns** to drop noise and keep only these fields.
+     
+   Selected these 12 key variables out of 100+ available features to focus on core credit risk indicators and loan performance metrics.
+   
+   
+   **Step 2: Target Cleaning** 
+   - Filtered `loan_status` to include only **Fully Paid** and **Charged Off**.
+   
+   This created a binary target variable (Fully Paid vs. Charged Off), enabling predictive modeling of default risk.
+   
+   
+   ![Power Query Step](images/PowerQuery_step1.png)
+   
+   
+   
+   5. Analysis & Key Insights
+      ## Heading: ## Risk Segmentation & Financial Insights
+   
+   Content: This is the "meat" of the project.
+   
+   Insight 1: The correlation between FICO scores and default rates.
+   
+   Insight 2: The impact of DTI (Debt-to-Income) on repayment success.
+   
+   Instruction: TAKE A SCREENSHOT of your most impactful Pivot Table or Chart. Use "Conditional Formatting" (Red/Green) to make it look professional.
+   
+   Key Insights & Visuals
+   What it is: The "Aha!" moments found in the data.
+   
+   The Goal: Prove you can translate numbers into Business Intelligence.
+   
+   Content: Embed screenshots of your charts and explain what they mean for the bank's profit.
+   
+   6. Final Recommendations (The "Senior" Part)
+      ## Heading: ## Strategic Recommendations
+   
+   Content: Tell the "bank" what to do.
+   
+   "Restrict lending to Grade D borrowers with DTI > 35%."
+   
+   "Adjust interest rates for low-income segments to cover the 5% higher default variance."
+   
+   Final Recommendations
+   What it is: Your advice to the company based on your findings.
+   
+   The Goal: Show Executive-level thinking.
+   
+   Content: "We should increase the interest rate for Grade D loans by 1.5% to cover the observed risk."
+   
+   ## Professional Formatting Tips
+   Use Markdown: Use # for the main title and ## for sections.
+   
+   Bold Key Terms: Bold words like Default Rate, Risk Mitigation, and Power Query.
+   
+   Use Visuals: Never have more than two paragraphs of text without a screenshot or a bulleted list.
