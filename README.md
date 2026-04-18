@@ -63,9 +63,13 @@ I extracted a specific subset of features based on the 5 C’s of Credit (Capaci
 ### 2. Transformation: The Cleaning Logic
 The transformation layer was executed using MySQL for structural changes and Power Query for reporting-layer logic:
 
+
+
+
 ![Image 2](images/2_removed_loan_status=current.png)
 
 Scope Filtering: Removed rows where <kbd>loan_status</kbd> = current to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
+
 
 
 
@@ -75,9 +79,11 @@ Feature Engineering (is_bad): Created a binary classifier where 1 represents a f
 
 
 
+
 ![Image 4](images/4_delete_annual_inc=0.png)
 
 Anomalous Data Handling: * Removed records with zero or null annual_inc to prevent capacity deflation.
+
 
 
 
