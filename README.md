@@ -64,6 +64,7 @@ I extracted a specific subset of features based on the 5 C’s of Credit (Capaci
 The transformation layer was executed using MySQL for structural changes and Power Query for reporting-layer logic:
 
 ![Image](images/2 Removed loan status = current.png)
+
 Scope Filtering: Removed "Current" and "In Grace Period" loans to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
 
 Feature Engineering (is_bad): Created a binary classifier where 1 represents a financial loss and 0 represents a successful recovery.
