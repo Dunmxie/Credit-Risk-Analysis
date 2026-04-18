@@ -24,7 +24,7 @@ Senior Tip: Use the "Strategic Analysis" description we chose earlier.
    The ultimate objective is to move beyond simple yes/no credit decisions. By analysing the correlation between borrower capacity and loan outcome, this analysis provides a roadmap for risk-based pricing, ensuring the institution is adequately compensated for the risk it absorbs.
    
    3. Data Architecture & Governance   
-   ## Heading: ## Data Pipeline & Governance
+   ## Heading: Data Pipeline & Governance
    
    Content: Mention the source (Kaggle) and your .gitignore strategy.
    
@@ -43,22 +43,22 @@ Senior Tip: Use the "Strategic Analysis" description we chose earlier.
 ## Technical Methodology: ETL & Data Transformation
 To ensure the integrity of the risk scorecard, I implemented a robust Extract, Transform, Load (ETL) pipeline. The goal was to convert a high-volume, "noisy" dataset into a structured format capable of identifying default tipping points.
 
-1. Extraction: Strategic Variable Selection
+### 1. Extraction: Strategic Variable Selection
 
 ![Variables Extracted](images/1_create_risk_analysis_table.png)
 
 
 I extracted a specific subset of features based on the 5 C’s of Credit (Capacity, Capital, Character, Collateral, and Conditions).
 
-Target Metric: loan_status (The basis for the is_bad target variable).
+* Target Metric: <kbd>loan_status</kbd> (The basis for the is_bad target variable).
 
-Capacity & Leverage: annual_inc, dti, and emp_length.
+* Capacity & Leverage: annual_inc, dti, and emp_length.
 
-Risk Character: grade, sub_grade, and FICO ranges (fico_range_high/low).
+* Risk Character: grade, sub_grade, and FICO ranges (fico_range_high/low).
 
-Loan Terms: loan_amnt, int_rate, term, and purpose.
+* Loan Terms: loan_amnt, int_rate, term, and purpose.
 
-Stability: home_ownership.
+* Stability: home_ownership.
 
 2. Transformation: The Cleaning Logic
 The transformation layer was executed using MySQL for structural changes and Power Query for reporting-layer logic:
