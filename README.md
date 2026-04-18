@@ -65,19 +65,25 @@ The transformation layer was executed using MySQL for structural changes and Pow
 
 ![Image 2](images/2_removed_loan_status=current.png)
 
-* Scope Filtering: Removed rows where <kbd>loan_status</kbd> = current to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
+Scope Filtering: Removed rows where <kbd>loan_status</kbd> = current to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
+
+
 
 ![Image 3](images/3_create_is_bad.png)
 
-* Feature Engineering (is_bad): Created a binary classifier where 1 represents a financial loss and 0 represents a successful recovery.
+Feature Engineering (is_bad): Created a binary classifier where 1 represents a financial loss and 0 represents a successful recovery.
+
+
 
 ![Image 4](images/4_delete_annual_inc=0.png)
 
-* Anomalous Data Handling: * Removed records with zero or null annual_inc to prevent capacity deflation.
+Anomalous Data Handling: * Removed records with zero or null annual_inc to prevent capacity deflation.
+
+
 
 ![Image 5](images/5_dti_greater_than_50.png)
 
-* Strategic DTI Audit: Retained high-DTI outliers (>50) after identifying a correlation with "Debt Consolidation" purposes and high success rates, preserving valuable high-yield data.
+Strategic DTI Audit: Retained high-DTI outliers (>50) after identifying a correlation with "Debt Consolidation" purposes and high success rates, preserving valuable high-yield data.
 
 
 
