@@ -44,6 +44,7 @@
 To ensure the integrity of the risk scorecard, I implemented a robust Extract, Transform, Load (ETL) pipeline. The goal was to convert a high-volume, "noisy" dataset into a structured format capable of identifying default tipping points.
 
 1. Extraction: Strategic Variable Selection
+
 ![Variables Extracted](images/1 Create risk analysis Table.png)
 
    
