@@ -40,29 +40,11 @@
    Content: Link to the Kaggle source and mention your cleaning steps.
    
    4. Methodology (The "ETL" Process)
-      ## Heading: ## Technical Methodology: ETL & Data Transformation
-   
-   Content: Use bullet points to describe using Power Query.
-   
-   Step 1: Filtered for completed loan cycles (Fully Paid vs. Charged Off).
-   
-   Step 2: Feature Engineering (e.g., creating the Debt-to-Income bins).
-   
-   Instruction: TAKE A SCREENSHOT of your "Applied Steps" in Power Query and place it here.
-   
-   Methodology (The "How")
-   What it is: A step-by-step breakdown of your technical process.
-   
-   The Goal: Show off your Power Query and Excel skills.
-   
-   Content: Use bullet points. Mention filtering, handling nulls, and creating Pivot Tables.
-   
-   
-   
-   Technical Methodology: ETL & Data Transformation
+## Technical Methodology: ETL & Data Transformation
 To ensure the integrity of the risk scorecard, I implemented a robust Extract, Transform, Load (ETL) pipeline. The goal was to convert a high-volume, "noisy" dataset into a structured format capable of identifying default tipping points.
 
 1. Extraction: Strategic Variable Selection
+   ![Variables Extracted](images/1 Create risk analysis Table.png)
    
 I extracted a specific subset of features based on the 5 C’s of Credit (Capacity, Capital, Character, Collateral, and Conditions).
 
