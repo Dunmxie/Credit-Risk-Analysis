@@ -45,7 +45,7 @@ To ensure the integrity of the risk scorecard, I implemented a robust Extract, T
 
 ### 1. Extraction: Strategic Variable Selection
 
-![Variables Extracted](images/1_create_risk_analysis_table.png)
+![Image 1](images/1_create_risk_analysis_table.png)
 
 
 I extracted a specific subset of features based on the 5 C’s of Credit (Capacity, Capital, Character, Collateral, and Conditions).
@@ -63,15 +63,28 @@ I extracted a specific subset of features based on the 5 C’s of Credit (Capaci
 ### 2. Transformation: The Cleaning Logic
 The transformation layer was executed using MySQL for structural changes and Power Query for reporting-layer logic:
 
-![Image](images/2 Removed loan status = current.png)
+![Image 2](images/2_removed_loan_status=current.png)
 
-Scope Filtering: Removed "Current" and "In Grace Period" loans to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
+* Scope Filtering: Removed "Current" and "In Grace Period" loans to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
 
-Feature Engineering (is_bad): Created a binary classifier where 1 represents a financial loss and 0 represents a successful recovery.
+![Image 3](images/3_create_is_bad.png)
 
-Anomalous Data Handling: * Removed records with zero or null annual_inc to prevent capacity deflation.
+* Feature Engineering (is_bad): Created a binary classifier where 1 represents a financial loss and 0 represents a successful recovery.
 
-Strategic DTI Audit: Retained high-DTI outliers (>50) after identifying a correlation with "Debt Consolidation" purposes and high success rates, preserving valuable high-yield data.
+![Image 4](images/4_delete_annual_inc=0.png)
+
+* Anomalous Data Handling: * Removed records with zero or null annual_inc to prevent capacity deflation.
+
+![Image 5](images/5_dti_greater_than_50.png)
+
+* Strategic DTI Audit: Retained high-DTI outliers (>50) after identifying a correlation with "Debt Consolidation" purposes and high success rates, preserving valuable high-yield data.
+
+
+
+
+
+
+
 
 Dynamic Binning: Utilized Power Query to create Income_Buckets. This transformed a continuous numerical variable into categorical "Risk Zones" for clearer visualization.
 
