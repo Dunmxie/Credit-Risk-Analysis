@@ -1,3 +1,10 @@
+# Test Header
+
+![test](images/1_create_risk_analysis_table.png)
+
+---
+   
+   
    Here is the exact layout you should follow, including the specific headings and what goes inside them:
    
    
@@ -45,9 +52,9 @@ To ensure the integrity of the risk scorecard, I implemented a robust Extract, T
 
 1. Extraction: Strategic Variable Selection
 
-![Variables Extracted](images/1 Create risk analysis Table.png)
+![Variables Extracted](https://github.com/Dunmxie/Credit-Risk-Analysis/blob/main/images/1_create_risk_analysis_table.png)
 
-   
+
 I extracted a specific subset of features based on the 5 C’s of Credit (Capacity, Capital, Character, Collateral, and Conditions).
 
 Target Metric: loan_status (The basis for the is_bad target variable).
