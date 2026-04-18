@@ -1,32 +1,25 @@
-# Test Header
-
-![test](images/1_create_risk_analysis_table.png)
-
----
+Here is the exact layout you should follow, including the specific headings and what goes inside them:
    
    
-   Here is the exact layout you should follow, including the specific headings and what goes inside them:
+1. Project Title & Executive Summary
+# LendingClub Risk-Returns Optimisation
+  
+Content: A 3-sentence summary. State the problem (defaults), your action (segmentation), and the result (reduced risk).
    
+Why: Recruiters need to know the "value" immediately.
    
-   1. Project Title & Executive Summary
-   # LendingClub Risk-Returns Optimisation
+Title & High-Level Summary
+What it is: A bold project title and a 2-3 sentence "elevator pitch."
    
-   Content: A 3-sentence summary. State the problem (defaults), your action (segmentation), and the result (reduced risk).
+The Goal: Tell the reader exactly what the project does in 10 seconds.
    
-   Why: Recruiters need to know the "value" immediately.
+Senior Tip: Use the "Strategic Analysis" description we chose earlier.
    
-   Title & High-Level Summary
-   What it is: A bold project title and a 2-3 sentence "elevator pitch."
+2. Business Problem Statement  
+## Quantifying the Risk-Return Threshold
+  In the consumer lending sector, profit is dependent on the precision of the Risk-Return Tradeoff. A marginal increase in the default rate does not just impact interest income; it causes Capital Erosion, where the loss of principal requires significantly more performing loans just to break even.
    
-   The Goal: Tell the reader exactly what the project does in 10 seconds.
-   
-   Senior Tip: Use the "Strategic Analysis" description we chose earlier.
-   
-   2. Business Problem Statement  
-   ## Quantifying the Risk-Return Threshold
-   In the consumer lending sector, profit is dependent on the precision of the Risk-Return Tradeoff. A marginal increase in the default rate does not just impact interest income; it causes Capital Erosion, where the loss of principal requires significantly more performing loans just to break even.
-   
-   In high-volume lending, a Charged Off loan is a double loss: the bank loses the remaining principal and the operational cost of capital. Because principal losses are so much larger than interest gains, a 100 basis point (1%) reduction in the default rate can save millions in capital. This project focuses on identifying the risk tipping point where borrower leverage begins to outpace interest revenue.
+  In high-volume lending, a Charged Off loan is a double loss: the bank loses the remaining principal and the operational cost of capital. Because principal losses are so much larger than interest gains, a 100 basis point (1%) reduction in the default rate can save millions in capital. This project focuses on identifying the risk tipping point where borrower leverage begins to outpace interest revenue.
    
    The ultimate objective is to move beyond simple yes/no credit decisions. By analysing the correlation between borrower capacity and loan outcome, this analysis provides a roadmap for risk-based pricing, ensuring the institution is adequately compensated for the risk it absorbs.
    
@@ -52,7 +45,7 @@ To ensure the integrity of the risk scorecard, I implemented a robust Extract, T
 
 1. Extraction: Strategic Variable Selection
 
-![Variables Extracted](https://github.com/Dunmxie/Credit-Risk-Analysis/blob/main/images/1_create_risk_analysis_table.png)
+![Variables Extracted](images/1_create_risk_analysis_table.png)
 
 
 I extracted a specific subset of features based on the 5 C’s of Credit (Capacity, Capital, Character, Collateral, and Conditions).
