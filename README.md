@@ -59,27 +59,42 @@
    
    
    
-   ## Technical Methodology: ETL & Data Transformation 
+   Technical Methodology: ETL & Data Transformation
+To ensure the integrity of the risk scorecard, I implemented a robust Extract, Transform, Load (ETL) pipeline. The goal was to convert a high-volume, "noisy" dataset into a structured format capable of identifying default tipping points.
+
+1. Extraction: Strategic Variable Selection
    
-   **Step 1: Target Definition** 
-   - Imported the LendingClub dataset into Power Query
-   - Selected only the relevant "risk driver" columns:
-     - Target: `loan_status`
-     - Reward: `int_rate`, `loan_amnt`, `installment`
-     - Risk: `grade`, `annual_inc`, `dti`, `fico_range_high`, `emp_length`
-     - Context: `purpose`, `home_ownership`, `addr_state`
-   - Used **Remove Other Columns** to drop noise and keep only these fields.
-     
-   Selected these 12 key variables out of 100+ available features to focus on core credit risk indicators and loan performance metrics.
-   
-   
-   **Step 2: Target Cleaning** 
-   - Filtered `loan_status` to include only **Fully Paid** and **Charged Off**.
-   
-   This created a binary target variable (Fully Paid vs. Charged Off), enabling predictive modeling of default risk.
-   
-   
-   ![Power Query Step](images/PowerQuery_step1.png)
+I extracted a specific subset of features based on the 5 C’s of Credit (Capacity, Capital, Character, Collateral, and Conditions).
+
+Target Metric: loan_status (The basis for the is_bad target variable).
+
+Capacity & Leverage: annual_inc, dti, and emp_length.
+
+Risk Character: grade, sub_grade, and FICO ranges (fico_range_high/low).
+
+Loan Terms: loan_amnt, int_rate, term, and purpose.
+
+Stability: home_ownership.
+
+2. Transformation: The Cleaning Logic
+The transformation layer was executed using MySQL for structural changes and Power Query for reporting-layer logic:
+
+Scope Filtering: Removed "Current" and "In Grace Period" loans to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
+
+Feature Engineering (is_bad): Created a binary classifier where 1 represents a financial loss and 0 represents a successful recovery.
+
+Anomalous Data Handling: * Removed records with zero or null annual_inc to prevent capacity deflation.
+
+Strategic DTI Audit: Retained high-DTI outliers (>50) after identifying a correlation with "Debt Consolidation" purposes and high success rates, preserving valuable high-yield data.
+
+Dynamic Binning: Utilized Power Query to create Income_Buckets. This transformed a continuous numerical variable into categorical "Risk Zones" for clearer visualization.
+
+3. Loading: The Reporting Layer
+The cleaned, transformed data was loaded into Power BI via a flattened table structure.
+
+Data Type Optimization: Ensured numeric values (Rates, Amounts) and categorical values (Grades, Buckets) were correctly typed to support DAX calculations.
+
+Sort Logic: Created custom sort-order columns (e.g., Income_Sort) to ensure that the dashboard visuals followed a logical financial progression rather than an alphabetical one.
    
    
    
