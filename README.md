@@ -52,17 +52,18 @@ I extracted a specific subset of features based on the 5 C’s of Credit (Capaci
 
 * Target Metric: <kbd>loan_status</kbd> (The basis for the is_bad target variable).
 
-* Capacity & Leverage: annual_inc, dti, and emp_length.
+* Capacity & Leverage: <kbd>annual_inc</kbd>, <kbd>dti</kbd>, and <kbd>emp_length</kbd>.
 
-* Risk Character: grade, sub_grade, and FICO ranges (fico_range_high/low).
+* Risk Character: <kbd>grade</kbd>, <kbd>sub_grade</kbd>, and <kbd>FICO ranges</kbd> (fico_range_high/low).
 
-* Loan Terms: loan_amnt, int_rate, term, and purpose.
+* Loan Terms: <kbd>loan_amnt</kbd>, <kbd>int_rate</kbd>, and <kbd>term</kbd>.
 
-* Stability: home_ownership.
+* Stability: <kbd>home_ownership</kbd>, and <kbd>purpose</kbd>.
 
-2. Transformation: The Cleaning Logic
+### 2. Transformation: The Cleaning Logic
 The transformation layer was executed using MySQL for structural changes and Power Query for reporting-layer logic:
 
+![Image](images/2 Removed loan status = current.png)
 Scope Filtering: Removed "Current" and "In Grace Period" loans to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
 
 Feature Engineering (is_bad): Created a binary classifier where 1 represents a financial loss and 0 represents a successful recovery.
