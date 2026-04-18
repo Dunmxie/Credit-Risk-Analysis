@@ -65,7 +65,7 @@ The transformation layer was executed using MySQL for structural changes and Pow
 
 ![Image 2](images/2_removed_loan_status=current.png)
 
-* Scope Filtering: Removed "Current" and "In Grace Period" loans to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
+* Scope Filtering: Removed rows where <kbd>loan_status</kbd> = current to focus exclusively on Terminated Loan Cycles (Fully Paid vs. Charged Off).
 
 ![Image 3](images/3_create_is_bad.png)
 
