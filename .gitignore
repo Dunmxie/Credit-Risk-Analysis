@@ -1,0 +1,20 @@
+# Raw data files - too large for GitHub
+data/raw/*.csv
+
+# .env file containing sensitive information
+*.env
+
+# MySQL files
+*.sql.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Power BI cache
+*.pbix.bak
+
+echo .env > .gitignore
+echo .venv/ >> .gitignore
+echo .ipynb_checkpoints/ >> .gitignore
+echo __pycache__/ >> .gitignore
