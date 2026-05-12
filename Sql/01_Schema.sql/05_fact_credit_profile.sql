@@ -1,0 +1,51 @@
+-- =============================================================
+-- Script:  05_fact_credit_profile.sql
+-- Purpose: Holds the borrower's credit bureau data at the time of application
+-- Author:  Oluwadunmininu Deborah Oluremi
+-- Date:    10/5/2026
+-- =============================================================
+
+CREATE TABLE fact_credit_profile (
+    loan_id                   VARCHAR(50) PRIMARY KEY,
+    borrower_id               INT,
+    fico_range_low            INT,
+    fico_range_high           INT,
+    last_fico_range_low       INT,
+    last_fico_range_high      INT,
+    dti                       DECIMAL(10,2),
+    delinq_2yrs               INT,
+    earliest_cr_line          DATE,
+    inq_last_6mths            INT,
+    mths_since_last_delinq    INT,
+    mths_since_last_record    INT,
+    open_acc                  INT,
+    pub_rec                   INT,
+    revol_bal                 DECIMAL(15,2),
+    revol_util                DECIMAL(6,2),
+    total_acc                 INT,
+    acc_now_delinq            INT,
+    tot_coll_amt              DECIMAL(15,2),
+    tot_cur_bal               DECIMAL(15,2),
+    tot_hi_cred_lim           DECIMAL(15,2),
+    total_bal_ex_mort         DECIMAL(15,2),
+    total_bc_limit            DECIMAL(15,2),
+    pub_rec_bankruptcies      INT,
+    tax_liens                 INT,
+    mort_acc                  INT,
+    num_actv_bc_tl            INT,
+    num_actv_rev_tl           INT,
+    num_bc_sats               INT,
+    num_bc_tl                 INT,
+    num_il_tl                 INT,
+    num_op_rev_tl             INT,
+    num_rev_accts             INT,
+    num_sats                  INT,
+    pct_tl_nvr_dlq            DECIMAL(6,2),
+    percent_bc_gt_75          DECIMAL(6,2),
+    bc_util                   DECIMAL(6,2),
+    avg_cur_bal               DECIMAL(15,2),
+    num_accts_ever_120_pd     INT,
+    num_tl_90g_dpd_24m        INT,
+    chargeoff_within_12_mths  INT,
+    delinq_amnt               DECIMAL(15,2)
+);
