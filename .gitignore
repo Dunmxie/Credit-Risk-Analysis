@@ -2,7 +2,7 @@
 data/raw/*.csv
 
 # .env file containing sensitive information
-*.env
+.env
 
 # MySQL files
 *.sql.bak
