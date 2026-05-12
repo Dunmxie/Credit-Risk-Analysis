@@ -1,20 +1,32 @@
-# Raw data files - too large for GitHub
-data/raw/*.csv
-
-# .env file containing sensitive information
+# --- SECURITY & CONFIG ---
+# Ignore the environment file with your MySQL passwords
 .env
+*.env
 
-# MySQL files
+# --- PYTHON & JUPYTER ---
+# Virtual environments (the massive folder of library files)
+.venv/
+venv/
+env/
+# Python cache files
+__pycache__/
+*.py[cod]
+# Jupyter autosave checkpoints
+.ipynb_checkpoints/
+
+# --- DATA & LARGE FILES ---
+# Raw CSVs too large for GitHub
+data/raw/*.csv
+# Power BI temporary files
+*.pbix.bak
+
+# --- DATABASE ---
+# MySQL backup files
 *.sql.bak
 
-# OS files
+# --- OS JUNK ---
 .DS_Store
 Thumbs.db
 
-# Power BI cache
-*.pbix.bak
-
-echo .env > .gitignore
-echo .venv/ >> .gitignore
-echo .ipynb_checkpoints/ >> .gitignore
-echo __pycache__/ >> .gitignore
+#Personal notes and scratch files
+Docs/business_insights.ipynb
