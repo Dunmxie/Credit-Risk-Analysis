@@ -16,9 +16,10 @@ __pycache__/
 
 # --- DATA & LARGE FILES ---
 # Raw CSVs too large for GitHub
-data/raw/*.csv
+Data/raw/*.csv
 # Power BI temporary files
 *.pbix.bak
+*.pbix
 
 # --- DATABASE ---
 # MySQL backup files
@@ -30,3 +31,4 @@ Thumbs.db
 
 #Personal notes and scratch files
 Docs/business_insights.ipynb
+Power_BI/Dashboard*

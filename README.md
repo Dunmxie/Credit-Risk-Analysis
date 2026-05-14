@@ -62,10 +62,29 @@ Source: [Lending Club Loan Data — Kaggle](https://www.kaggle.com/datasets/word
 ## Project Phases
 - [x] Phase 1 — Data Exploration
 - [x] Phase 2 — Database Design & Schema Creation
-- [ ] Phase 3 — Data Import
-- [ ] Phase 4 — Data Cleaning
-- [ ] Phase 5 — SQL Analysis
-- [ ] Phase 6 — Power BI Dashboard
+- [x] Phase 3 — Data Import
+- [x] Phase 4 — Data Cleaning
+- [x] Phase 5 — SQL Analysis
+- [x] Phase 6 — Power BI Dashboard
+
+---
+
+## Dashboard Preview
+
+### Page 1 — Executive Summary
+![Executive Summary](docs/dashboard_page1_executive_summary.png)
+
+### Page 2 — Risk Analysis
+![Risk Analysis](docs/dashboard_page2_risk_analysis.png)
+
+### Page 3 — Portfolio Trends
+![Portfolio Trends](docs/dashboard_page3_portfolio_trends.png)
+
+### Page 4 — Geographic Analysis
+![Geographic Analysis](docs/dashboard_page4_geographic.png)
+
+### Page 5 — Borrower Profiles
+![Borrower Profiles](docs/dashboard_page5_borrower_profiles.png)
 
 ---
 
