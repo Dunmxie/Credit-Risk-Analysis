@@ -29,7 +29,7 @@ within a credit lending business context.
 Source: [Lending Club Loan Data — Kaggle](https://www.kaggle.com/datasets/wordsforthewise/lending-club)
 
 > Raw data files are not included in this repository due to size.
-> Download from the link above and place in `data/raw/`.
+> Download from the link above and place in `Data/raw/`.
 
 ---
 
@@ -72,19 +72,19 @@ Source: [Lending Club Loan Data — Kaggle](https://www.kaggle.com/datasets/word
 ## Dashboard Preview
 
 ### Page 1 — Executive Summary
-![Executive Summary](docs/dashboard_page1_executive_summary.png)
+![Executive Summary](Docs/dashboard_page1_executive_summary.png)
 
 ### Page 2 — Risk Analysis
-![Risk Analysis](docs/dashboard_page2_risk_analysis.png)
+![Risk Analysis](Docs/dashboard_page2_risk_analysis.png)
 
 ### Page 3 — Portfolio Trends
-![Portfolio Trends](docs/dashboard_page3_portfolio_trends.png)
+![Portfolio Trends](Docs/dashboard_page3_portfolio_trends.png)
 
 ### Page 4 — Geographic Analysis
-![Geographic Analysis](docs/dashboard_page4_geographic.png)
+![Geographic Analysis](Docs/dashboard_page4_geographic.png)
 
 ### Page 5 — Borrower Profiles
-![Borrower Profiles](docs/dashboard_page5_borrower_profiles.png)
+![Borrower Profiles](Docs/dashboard_page5_borrower_profiles.png)
 
 ---
 
