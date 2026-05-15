@@ -9,6 +9,22 @@
 
 ---
 
+## 📑 Table of Contents
+
+1. [Dashboard Preview](#dashboard_preview)
+2. [Executive Summary](#executive_summary)
+3. [Key Findings](#key_findings)
+4. [Data Pipeline](#data_pipeline)
+5. [Project Navigation](#project_navigation)
+6. [Database Schema](#database_schema)
+7. [Data Cleaning](#data_cleaning)
+8. [Dashboard Pages](#dashboard_pages)
+9. [Interactive Dashboard Access](#interactive_dashboard_access)
+10. [How to Reproduce This Project](#how_to_reproduce_this_project)
+11. [Dataset](#dataset)
+12. [Author](#author)
+
+---
 ## 📊 Dashboard Preview
 
 > **Executive Summary Page**: KPIs, default rate distribution, and issuance growth trend (2007–2018)
@@ -53,7 +69,7 @@ Architected an analytics pipeline from raw CSV ingestion through a Star-Schema o
 
 ---
 
-## 📐 The Data Pipeline
+## 📐 Data Pipeline
 
 ```
 Lending Club Raw Data          MySQL Workbench              Power BI Desktop
@@ -129,7 +145,7 @@ credit-risk-analytics/
 
 ---
 
-## 🛠️ Data Cleaning Summary
+## 🛠️ Data Cleaning
 
 Resolved **7 categories of data quality issues** before any analysis was performed:
 
