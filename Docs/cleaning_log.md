@@ -1,6 +1,13 @@
 # Data Cleaning Log
-
 ## Date: 10/5/2026
+
+### Data Audit Overview
+| Total Raw Records | Records Post-Cleaning |Data Retention Rate|
+|-------|---------|---------------|
+| 2,260,701 | 2,260,668 | 99.99% |
+|
+
+**Audit Note:** The retention of 99.99% of records ensures that the cleaning process removed "noise" (footer rows) without compromising the statistical significance of the portfolio analysis.
 
 ## Pre-Cleaning Exploration Results
 
@@ -25,18 +32,19 @@
 - **Fix:** Replaced blanks with 'Not Specified'
 - **Before:** 222,556 blank rows
 - **After:** 0 blank rows
-- **Script:** sql/03_cleaning/01_clean_emp_length.sql
+- **Script:** [sql/03_cleaning/01_clean_emp_length.sql](Sql/03_Cleaning.sql/01_clean_emp_length.sql)
 
 ### 2. Invalid DTI Values — fact_credit_profile
-- **Issue:** DTI values ranged from -1.00 to 999.00
+- **Issue:** DTI values ranged from -1.00 to 999.00. This range reveals the problem of extreme outliers and system errors.
+- **Impact:** Uncleaned DTI would have artificially inflated the Risk vs. DTI correlation.
 - **Breakdown:**
   - Extreme (above 100): 2,561 rows
   - Invalid negative: 2 rows
   - Missing/NULL: 1,744 rows
   - Valid rows: 2,256,394 rows
-- **Fix:** Set invalid values to NULL, added dti_flag column
+- **Fix:** Implemented a Flagging System. By adding dti_flag, we preserve the record for volume analysis while excluding the extreme values from the risk calculations and I then set invalid values to NULL.
 - **Clean DTI range after fix:** Min: 0.00, Max: 100.00, Avg: 18.57
-- **Script:** sql/03_cleaning/02_clean_dti.sql
+- **Script:** [sql/03_cleaning/02_clean_dti.sql](Sql/03_Cleaning.sql/02_clean_dti.sql)
 
 ### 3. Verbose Loan Status Values — fact_loan_performance
 - **Issue:** 2,749 rows had verbose status starting with
@@ -44,7 +52,7 @@
 - **Additional issue:** 33 rows had completely empty loan_status
 - **Fix:** Simplified verbose statuses to core values using CASE WHEN,
   added policy_exception flag column, replaced blanks with 'Unknown'
-- **Script:** sql/03_cleaning/03_clean_loan_status.sql
+- **Script:** [sql/03_cleaning/03_clean_loan_status.sql](Sql/03_Cleaning.sql/03_clean_loan_status.sql)
 
 #### Final Loan Status Distribution After Cleaning
 | Loan Status | Count |
@@ -59,20 +67,15 @@
 | Unknown | 33 |
 
 ### 4. Added Analytical Flag Columns — fact_loan_performance
-- **Added:** is_defaulted — 1 if Charged Off, Default, or Late 31-120 days
-- **Added:** is_concluded — 1 if Fully Paid, Charged Off, or Default
-- **Script:** sql/03_cleaning/04_add_analytical_flags.sql
+- **Feature Engineering:** Created is_defaulted and is_concluded flags.
+- **Impact:** This removes noise from the active portfolio (Current loans) to focus purely on historical performance. This is the difference between an estimated and a realized loss analysis.
+- **Script:** s[ql/03_cleaning/04_add_analytical_flags.sql](Sql/03_Cleaning.sql/04_add_analytical_flags.sql)
 
 ### 5. CSV Footer Rows Removed — All Fact Tables
-- **Issue:** 33 Lending Club CSV summary/footer rows loaded 
-  into fact tables with text descriptions as loan_id values
-  e.g. "Total amount funded in policy code 1: 6417608175"
-- **Cause:** Lending Club appended summary rows at the bottom
-  of the raw CSV — they are not real loan records
-- **Detected:** When adding foreign key constraints — MySQL 
-  Error 1452 flagged orphaned loan_ids
-- **Fix:** Deleted rows where loan_id fails REGEXP '^[0-9]+$'
-- **Script:** sql/03_cleaning/05_remove_footer_rows.sql
+- **Issue:** Identified 33 orphaned records during Foreign Key constraint application.
+- **Diagnostic:** Pattern matching revealed these were Lending Club summary footers, not borrower records.
+- **Fix:** Used REGEXP to purge non-numeric loan_id values. This allowed for a strict Star Schema with enforced constraints, ensuring no future orphaned data can enter the warehouse.
+- **Script:** [sql/03_cleaning/05_remove_footer_rows.sql](Sql/03_Cleaning.sql/05_remove_footer_rows.sql)
 - **Rows deleted:** 33
 - **Impact on analysis:** Zero — these were never real loans
 
@@ -89,12 +92,18 @@
 
 ## Data Quality Summary After Cleaning
 
-| Table | Issue | Rows Affected | Resolution |
-|-------|-------|---------------|------------|
-| dim_borrower | Blank emp_length | 222,556 | Replaced with 'Not Specified' |
-| fact_credit_profile | Invalid DTI | 2,563 | Set to NULL with dti_flag |
-| fact_credit_profile | NULL DTI | 1,744 | Flagged as 'Missing' |
-| fact_loan_performance | Verbose status | 2,749 | Simplified with policy_exception flag |
-| fact_loan_performance | Empty status | 33 | Replaced with 'Unknown' |
-| fact_loan_performance | Added flags | All rows | is_defaulted, is_concluded added |
-|
+| Table | Issue | Rows Affected | Resolution | Business Impact|
+|-------|-------|---------------|------------|----------------|
+| dim_borrower | Blank emp_length | 222,556 | Replaced with 'Not Specified' | Prevents "bias of the unemployed" in risk clusters|
+| fact_credit_profile | Invalid DTI | 2,563 | Set to NULL with dti_flag | Prevents 999% DTI outliers from artificially inflating the portfolio’s average risk profile |
+| fact_credit_profile | NULL DTI | 1,744 | Flagged as 'Missing' | Distinguishes between borrowers with no debt and those with failed data collection |
+| fact_loan_performance | Verbose status | 2,749 | Simplified with policy_exception flag | Enables clean time-series trending without string-matching overhead |
+| fact_loan_performance | Empty status | 33 | Replaced with 'Unknown' | Enables clean time-series trending and high-speed filtering without high-latency string matching |
+| fact_loan_performance | Added flags | All rows | is_defaulted, is_concluded added | Protects the integrity of the FICO/DTI correlation model |
+
+## ⚠️ The Risk of Inaction
+- **Skewed Underwriting:** Without nullifying the extreme DTI values, the correlation between debt and default would have been statistically diluted, leading to incorrect "safe" lending thresholds.
+
+- **Referential Integrity Collapse:** Failing to remove the 33 CSV footer rows would have prevented the enforcement of Foreign Key Constraints, allowing ghost data to corrupt the Star Schema.
+
+- **KPI Misreporting:** Without the is_concluded flag, the default rate would likely include Current loans, which artificially lowers the perceived risk and provides a false sense of security to stakeholders.
