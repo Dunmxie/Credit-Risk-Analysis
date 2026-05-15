@@ -11,18 +11,22 @@
 
 ## 📑 Table of Contents
 
-1. [Dashboard Preview](#dashboard-preview)
+1. [Dashboard Preview](#-dashboard-preview)
 2. [Executive Summary](#executive-summary)
-3. [Key Findings](#key-findings)
-4. [Data Pipeline](#data-pipeline)
-5. [Project Navigation](#project-navigation)
-6. [Database Schema](#database-schema)
-7. [Data Cleaning](#data-cleaning)
-8. [Dashboard Pages](#dashboard-pages)
-9. [Interactive Dashboard Access](#interactive-dashboard-access)
-10. [How to Reproduce This Project](#how-to-reproduce-this-project)
-11. [Dataset](#dataset)
-12. [Author](#author)
+3. [Key Findings](#-key-findings)
+4. [Data Pipeline](#-data-pipeline)
+5. [Project Navigation](#-project-navigation)
+6. [Database Schema](#%EF%B8%8F-database-schema)
+7. [Data Cleaning](#%EF%B8%8F-data-cleaning)
+8. [Dashboard Pages](#-dashboard-pages)
+9. [Risk Analysis](#page-2--risk-analysis)
+10. [Portfolio Trends](#page-3--portfolio-trends)
+11. [Geographic Analysis](#page-4--geographic-analysis)
+12. [Borrower Profiles](page-5--borrower-profiles)
+13. [Interactive Dashboard Access](#-interactive-dashboard-access)
+14. [How to Reproduce This Project](#%EF%B8%8F-how-to-reproduce-this-project)
+15. [Dataset](#-dataset)
+16. [Author](#-author)
 
 ---
 ## 📊 Dashboard Preview
@@ -56,6 +60,7 @@ Architected an analytics pipeline from raw CSV ingestion through a Star-Schema o
 - **Exposure at Risk:** Tracking portfolio health against aggressive issuance targets.
 
 ---
+
 
 ## 💡 Key Findings
 
