@@ -11,16 +11,16 @@
 
 ## 📑 Table of Contents
 
-1. [Dashboard Preview](#dashboard_preview)
-2. [Executive Summary](#executive_summary)
-3. [Key Findings](#key_findings)
-4. [Data Pipeline](#data_pipeline)
-5. [Project Navigation](#project_navigation)
-6. [Database Schema](#database_schema)
-7. [Data Cleaning](#data_cleaning)
-8. [Dashboard Pages](#dashboard_pages)
-9. [Interactive Dashboard Access](#interactive_dashboard_access)
-10. [How to Reproduce This Project](#how_to_reproduce_this_project)
+1. [Dashboard Preview](#dashboard-preview)
+2. [Executive Summary](#executive-summary)
+3. [Key Findings](#key-findings)
+4. [Data Pipeline](#data-pipeline)
+5. [Project Navigation](#project-navigation)
+6. [Database Schema](#database-schema)
+7. [Data Cleaning](#data-cleaning)
+8. [Dashboard Pages](#dashboard-pages)
+9. [Interactive Dashboard Access](#interactive-dashboard-access)
+10. [How to Reproduce This Project](#how-to-reproduce-this-project)
 11. [Dataset](#dataset)
 12. [Author](#author)
 
