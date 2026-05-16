@@ -2,6 +2,21 @@
 
 > **Domain:** Consumer Credit Risk Analytics  
 > **Portfolio:** Lending Club Portfolio Infrastructure (2007–2018)
+
+
+## 📑 Table of Contents
+
+1. [Data Ecosystem & Source Lineage](#data-ecosystem--source-lineage)
+2. [Core Credit Risk Metadata & Glossary](#core-credit-risk-metadata--glossary)
+3. [Domain A](#-domain-a-loan-origination--ingestion-metrics-dim_loan_details)
+4. [Domain B](#-domain-b-borrower-demographics--personas-dim_borrower)
+5. [Domain C](#%EF%B8%8F-domain-c-credit-bureau-snapshots-at-origination-fact_credit_profile)
+6. [Domain D](#-domain-d-active-loan-performance--capital-loss-fact_loan_performance)
+7. [Domain E](#-domain-e-portfolio-exception-handling--sparse-subsets-fact_hardship--fact_debt_settlement)
+8. [Domain F](#-domain-f-global-time-intelligence-dim_date)
+9. [Domain G](#-domain-g-standalone-pipeline-baseline-dim_rejected)
+10. [Core Analytical Formula Matrix](#core-analytical-formula-matrix)
+    
 ## Data Ecosystem & Source Lineage
 *Establishing data provenance before defining individual fields.*
 
