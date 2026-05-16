@@ -318,7 +318,7 @@ The `.pbix` source file exceeds GitHub's file size limits and is excluded from t
 3. Open in Power BI Desktop
 4. The dashboard will load with full interactivity — slicers, drill-throughs, and tooltips included
 
-Alternatively, the static PDF export is available at [`powerbi/credit_risk_dashboard.pdf`](powerbi/credit_risk_dashboard.pdf).
+Alternatively, the static PDF export is available at [`powerbi/credit_risk_dashboard.pdf`](Power_BI/credit_risk_dashboard.pdf).
 
 ---
 
