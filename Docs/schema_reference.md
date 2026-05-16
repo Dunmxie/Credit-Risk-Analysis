@@ -9,7 +9,7 @@
 
 The warehouse is designed using a Star Schema to optimize query performance and data clarity. By decoupling stable borrower attributes from volatile performance metrics, we ensure the analytical engine remains fast even at a scale of 2.26 million records.
 
-![MySQL EER Diagram](Docs/MySQL_EER_Diagram.png)
+![MySQL EER Diagram](https://github.com/Dunmxie/Credit-Risk-Analysis/blob/main/Docs/MySQL_EER_Diagram.png)
 
 ### 🛰️ The Star Layout
 - Central Pivot: dim_loan_details serves as the primary spine of the schema.
