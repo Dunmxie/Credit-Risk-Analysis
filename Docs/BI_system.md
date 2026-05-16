@@ -16,7 +16,7 @@
 3. [DAX Measure Library](#dax-measure-library)
 4. [UI/UX Strategy & Design System](#uiux-strategy--design-system)
 5. [Performance Tuning](#performance-tuning)
-6. [Limitations & Assumptions](#limitations--assumptions)
+6. [Limitations & Assumptions](#%EF%B8%8F-limitations--assumptions)
 7. [Access the Dashboard](#access-the-dashboard)
 
 ---
