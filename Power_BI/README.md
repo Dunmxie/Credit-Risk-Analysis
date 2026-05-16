@@ -5,7 +5,7 @@
 **Stack:** Power BI Desktop · MySQL 8.0 · DAX  
 **Scope:** 2,260,668 accepted loan records · 27,648,741 rejected applications · 11-year portfolio history
 
-> This document covers the full technical and design decisions behind the Credit Risk Intelligence Dashboard — from data modelling and DAX engineering to UI strategy and known limitations. It is intended to be read alongside the [root README](../README.md) which covers the upstream MySQL pipeline.
+> This document covers the full technical and design decisions behind the Credit Risk Intelligence Dashboard; from data modelling and DAX engineering to UI strategy and known limitations. It is intended to be read alongside the [root README](../README.md) which covers the upstream MySQL pipeline.
 
 ---
 
