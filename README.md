@@ -118,7 +118,6 @@ credit-risk-analytics/
 │   └── master_04_analysis.sql          ← All 10 analytical queries in one file
 │
 ├── 📁 powerbi/
-│   ├── README                          ← 6 core actions to create dashboard
 │   └── credit_risk_dashboard.pdf       ← Static export for quick viewing
 │
 └── 📁 docs/
@@ -126,6 +125,7 @@ credit-risk-analytics/
     ├── schema_reference.md             ← Full database schema with all columns
     ├── cleaning_log.md                 ← Every data quality issue found and resolved
     ├── analysis_insights.md            ← Business interpretation of all 10 queries
+    ├── BI_system.md                    ← DAX and Core Metrix Functions
     └── [dashboard screenshots]         ← PNG previews of all 5 dashboard pages
 ```
 
