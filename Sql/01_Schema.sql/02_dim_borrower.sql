@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  02_dim_borrower.sql
 -- Purpose: Holds information about the person who took the loan.
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 CREATE TABLE dim_borrower (
