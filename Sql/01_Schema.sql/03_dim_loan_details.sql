@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  03_dim_loan_details.sql
 -- Purpose: Holds the static details of the loan such as amount, term, interest rate, etc.
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 CREATE TABLE dim_loan_details (
