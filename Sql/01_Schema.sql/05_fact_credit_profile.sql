@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  05_fact_credit_profile.sql
 -- Purpose: Holds the borrower's credit bureau data at the time of application
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 CREATE TABLE fact_credit_profile (
