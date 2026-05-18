@@ -1,19 +1,6 @@
 -- ============================================================
 -- MASTER SCRIPT 03 — DATA CLEANING
 -- Project:  Credit Risk Analytics
--- Author:   Oluwadunmininu Deborah Oluremi
--- Date:     10/5/2026
---
--- Description:
---   Cleans and prepares all tables for analysis.
---   Handles blank values, invalid numerics, verbose categoricals,
---   and adds analytical flag columns to support dashboard KPIs.
---
--- Scripts Combined:
---   01_clean_emp_length.sql
---   02_clean_dti.sql
---   03_clean_loan_status.sql
---   04_add_analytical_flags.sql
 --
 -- Cleaning Summary:
 --   - 222,556 blank emp_length values → 'Not Specified'
@@ -28,7 +15,6 @@
 -- ============================================================
 
 USE lending_club_db;
-
 
 -- ============================================================
 -- SECTION 1 — CLEAN EMPLOYMENT LENGTH
@@ -58,11 +44,9 @@ WHERE emp_length IS NULL OR emp_length = '';
 -- Fix:    Add dti_flag column, nullify invalid values
 -- ============================================================
 
--- Step 2.1: Add flag column to mark outlier rows
 ALTER TABLE fact_credit_profile
 ADD COLUMN dti_flag VARCHAR(30) DEFAULT NULL;
 
--- Step 2.2: Flag and nullifyeach category before nullifying
 UPDATE fact_credit_profile
 SET 
     dti_flag = CASE 
@@ -101,16 +85,13 @@ SET
 --         replace empty values with 'Unknown'
 -- ============================================================
 
--- Step 3.1: Add policy exception flag column
 ALTER TABLE fact_loan_performance
 ADD COLUMN policy_exception TINYINT(1) DEFAULT 0;
 
--- Step 3.2: Flag the policy exception rows before changing them
 UPDATE fact_loan_performance
 SET policy_exception = 1
 WHERE loan_status LIKE 'Does not meet the credit policy%';
 
--- Step 3.3: Simplify all status values
 UPDATE fact_loan_performance
 SET loan_status = CASE
     WHEN loan_status = 'Does not meet the credit policy. Status:Fully Paid'
@@ -153,12 +134,10 @@ END;
 --   0 = loan is still active (Current, Late, In Grace Period)
 -- ============================================================
 
--- Step 4.1: Add the two flag columns
 ALTER TABLE fact_loan_performance
 ADD COLUMN is_defaulted TINYINT(1) DEFAULT 0,
 ADD COLUMN is_concluded TINYINT(1) DEFAULT 0;
 
--- Step 4.2: Populate both flags in one optimised statement
 SET SQL_SAFE_UPDATES = 0;
 
 UPDATE fact_loan_performance
