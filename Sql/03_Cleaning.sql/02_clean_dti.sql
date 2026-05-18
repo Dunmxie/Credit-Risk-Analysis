@@ -7,11 +7,9 @@
 
 USE lending_club_db;
 
--- Step 1: Add a flag column to mark rows we are nullifying
 ALTER TABLE fact_credit_profile
 ADD COLUMN dti_flag VARCHAR(30) DEFAULT NULL;
 
--- Step 2: Flag and nullify problematic rows
 UPDATE fact_credit_profile
 SET 
     dti_flag = CASE 
@@ -25,7 +23,6 @@ SET
         ELSE dti 
     END;
 
--- Step 3: Verify results
 SELECT 
     dti_flag,
     COUNT(*) AS row_count
@@ -33,7 +30,6 @@ FROM fact_credit_profile
 GROUP BY dti_flag
 ORDER BY row_count DESC;
 
--- Step 4: Confirm new DTI range is clean
 SELECT 
     MIN(dti) AS min_dti,
     MAX(dti) AS max_dti,

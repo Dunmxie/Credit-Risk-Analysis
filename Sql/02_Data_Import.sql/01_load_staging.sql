@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  01_load_staging.sql
 -- Purpose: Load raw accepted loans CSV into staging table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
 -- =============================================================
 
 USE lending_club_db;

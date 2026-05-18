@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  08_load_fact_debt_settlement.sql
 -- Purpose: Populate fact_debt_settlement table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
 -- =============================================================
 
 INSERT INTO fact_debt_settlement (

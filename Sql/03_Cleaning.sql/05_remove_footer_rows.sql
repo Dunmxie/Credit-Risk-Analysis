@@ -19,7 +19,6 @@ DELETE FROM fact_debt_settlement   WHERE loan_id NOT REGEXP '^[0-9]+$';
 
 COMMIT;
 
--- Verify
 SELECT 
     COUNT(*) AS orphaned_rows_remaining
 FROM fact_loan_performance f

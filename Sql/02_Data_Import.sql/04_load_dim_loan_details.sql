@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  04_load_dim_loan_details.sql
 -- Purpose: Populate dim_loan_details table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
 -- =============================================================
 
 

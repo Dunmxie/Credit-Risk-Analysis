@@ -8,7 +8,6 @@
 USE lending_club_db;
 
 SELECT
-    -- Create meaningful FICO score bands
     CASE
         WHEN c.fico_range_low >= 800 THEN '800+ Exceptional'
         WHEN c.fico_range_low >= 740 THEN '740-799 Very Good'

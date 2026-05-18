@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  10_stg_accepted_loans.sql
 -- Purpose: Holds the original data from the .csv file to re-run any transformation withut reimporting the file.
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 USE lending_club_db;

@@ -21,7 +21,6 @@ ALTER TABLE fact_debt_settlement
 ADD CONSTRAINT fk_settlement_loan
 FOREIGN KEY (loan_id) REFERENCES dim_loan_details(loan_id);
 
--- Verify all foreign keys exist
 SELECT
     TABLE_NAME,
     CONSTRAINT_NAME,

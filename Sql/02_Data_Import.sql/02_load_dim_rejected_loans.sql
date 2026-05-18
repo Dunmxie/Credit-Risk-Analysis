@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  02_load_dim_rejected_loans.sql
--- Purpose: Load raw rejected loans CSV into dim_rejected table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
+-- Purpose: Load raw rejected loans CSV into dim_rejected table.
 -- =============================================================
 
 LOAD DATA LOCAL INFILE 'C:/Users/USER/Desktop/Projects/Credit Analytics/Credit-Risk-Analysis/Data/Raw/rejected_2007_to_2018Q4.csv'

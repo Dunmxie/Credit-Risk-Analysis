@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  09_load_dim_date.sql
 -- Purpose: Populate dim_date table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
 -- =============================================================
 
 SET SESSION cte_max_recursion_depth = 5000;

@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  03_load_dim_borrower.sql
--- Purpose: Populate dim_borrower table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
+-- Purpose: Populate dim_borrower table.
 -- =============================================================
 
 INSERT INTO dim_borrower (

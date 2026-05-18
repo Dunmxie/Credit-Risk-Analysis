@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  07_load_fact_hardship.sql
 -- Purpose: Populate fact_hardship table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
 -- =============================================================
 
 INSERT INTO fact_hardship (

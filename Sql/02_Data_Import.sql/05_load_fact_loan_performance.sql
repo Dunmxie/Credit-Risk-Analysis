@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  05_load_fact_loan_performance.sql
 -- Purpose: Populate fact_loan_performance table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
 -- =============================================================
 
 INSERT INTO fact_loan_performance (

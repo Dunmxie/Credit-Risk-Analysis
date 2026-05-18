@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  06_load_fact_credit_profile.sql
 -- Purpose: Populate fact_credit_profile table
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/05/2026
 -- =============================================================
 
 INSERT INTO fact_credit_profile (
