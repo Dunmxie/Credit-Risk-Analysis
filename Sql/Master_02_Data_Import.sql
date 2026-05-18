@@ -1,8 +1,6 @@
 -- ============================================================
 -- MASTER SCRIPT 02 — DATA IMPORT
 -- Project:  Credit Risk Analytics
--- Author:   Oluwadunmininu Deorah Oluremi
--- Date:     10/05/2026
 -- 
 -- Description:
 --   Loads data into the lending_club_db schema and all 9 tables
@@ -24,8 +22,6 @@
 
 -- ============================================================
 -- SECTION 1 — STAGING TABLE
--- Holds raw CSV data exactly as imported, all columns as TEXT
--- This is the source for all downstream table population
 -- ============================================================
 
 USE lending_club_db;
@@ -39,10 +35,9 @@ IGNORE 1 ROWS;
 
 -- ============================================================
 -- SECTION 2 — DIMENSION TABLES
--- Holds transformed data for dimension tables
 -- ============================================================
 
--- dim_borrower: Who borrowed the money
+-- dim_borrower:
 INSERT INTO dim_borrower (
     member_id, emp_title, emp_length, home_ownership,
     annual_inc, addr_state, zip_code, application_type, annual_inc_joint
@@ -60,7 +55,7 @@ SELECT DISTINCT
 FROM stg_accepted_loans;
 );
 
--- dim_loan_details: What the loan looked like at issuance
+-- dim_loan_details:
 INSERT INTO dim_loan_details (
     loan_id, loan_amnt, funded_amnt, funded_amnt_inv,
     term, int_rate, installment, grade, sub_grade,
@@ -84,12 +79,11 @@ SELECT
     disbursement_method,
     policy_code
 FROM stg_accepted_loans
--- This prevents the '01-' error by ignoring rows with no date
 WHERE issue_d IS NOT NULL 
   AND issue_d != '' 
   AND issue_d != ' ';
 
--- dim_date: Calendar table for time intelligence in Power BI
+-- dim_date:
 SET SESSION cte_max_recursion_depth = 5000;
 
 INSERT INTO dim_date (date_id, full_date, day, month, month_name, quarter, year, day_of_week, day_name, is_weekend)
@@ -113,7 +107,7 @@ SELECT
     CASE WHEN DAYOFWEEK(dt) IN (1,7) THEN TRUE ELSE FALSE END AS is_weekend
 FROM date_series;
 
--- dim_rejected: Applications that were turned down
+-- dim_rejected:
 LOAD DATA LOCAL INFILE 'C:/Users/USER/Desktop/Projects/Credit Analytics/Credit-Risk-Analysis/Data/Raw/rejected_2007_to_2018Q4.csv'
 INTO TABLE dim_rejected
 FIELDS TERMINATED BY ','
@@ -135,10 +129,9 @@ IGNORE 1 ROWS
 
 -- ============================================================
 -- SECTION 4 — FACT TABLES
--- Holds transformed data for fact tables
 -- ============================================================
 
--- fact_loan_performance: How each loan performed over time
+-- fact_loan_performance:
 INSERT INTO fact_loan_performance (
     loan_id, loan_status, out_prncp, out_prncp_inv,
     total_pymnt, total_pymnt_inv, total_rec_prncp,
@@ -158,20 +151,17 @@ SELECT
     NULLIF(total_rec_late_fee, '') + 0,
     NULLIF(recoveries, '') + 0,
     NULLIF(collection_recovery_fee, '') + 0,
-    -- Handle last_pymnt_d
     CASE 
         WHEN last_pymnt_d IS NOT NULL AND last_pymnt_d != '' 
         THEN STR_TO_DATE(CONCAT('01-', last_pymnt_d), '%d-%b-%Y') 
         ELSE NULL 
     END,
     NULLIF(last_pymnt_amnt, '') + 0,
-    -- Handle next_pymnt_d
     CASE 
         WHEN next_pymnt_d IS NOT NULL AND next_pymnt_d != '' 
         THEN STR_TO_DATE(CONCAT('01-', next_pymnt_d), '%d-%b-%Y') 
         ELSE NULL 
     END,
-    -- Handle last_credit_pull_d
     CASE 
         WHEN last_credit_pull_d IS NOT NULL AND last_credit_pull_d != '' 
         THEN STR_TO_DATE(CONCAT('01-', last_credit_pull_d), '%d-%b-%Y') 
@@ -179,10 +169,9 @@ SELECT
     END,
     pymnt_plan
 FROM stg_accepted_loans
--- To filter out the completely empty rows/footers
 WHERE id IS NOT NULL AND id != '';
 
--- fact_credit_profile: Borrower credit bureau data at application
+-- fact_credit_profile:
 INSERT INTO fact_credit_profile (
     loan_id, fico_range_low, fico_range_high,
     last_fico_range_low, last_fico_range_high,
@@ -207,7 +196,6 @@ SELECT
     NULLIF(last_fico_range_high, '') + 0,
     NULLIF(dti, '') + 0,
     NULLIF(delinq_2yrs, '') + 0,
-    -- SAFE DATE CONVERSION
     CASE 
         WHEN earliest_cr_line IS NOT NULL AND earliest_cr_line != '' 
         THEN STR_TO_DATE(CONCAT('01-', earliest_cr_line), '%d-%b-%Y') 
@@ -249,7 +237,7 @@ SELECT
 FROM stg_accepted_loans
 WHERE id IS NOT NULL AND id != '';
 
--- fact_hardship: Loans placed on hardship programmes
+-- fact_hardship:
 INSERT INTO fact_hardship (
     loan_id, hardship_flag, hardship_type, hardship_reason,
     hardship_status, deferral_term, hardship_amount,
@@ -279,7 +267,7 @@ SELECT
 FROM stg_accepted_loans
 WHERE hardship_flag = 'Y';
 
--- fact_debt_settlement: Loans settled for less than owed
+-- fact_debt_settlement:
 INSERT INTO fact_debt_settlement (
     loan_id, debt_settlement_flag, debt_settlement_flag_date,
     settlement_status, settlement_date, settlement_amount,
