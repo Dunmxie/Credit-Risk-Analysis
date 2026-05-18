@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  06_fact_hardship.sql
 -- Purpose: Holds data for loans that went into a hardship programme
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 CREATE TABLE fact_hardship (
