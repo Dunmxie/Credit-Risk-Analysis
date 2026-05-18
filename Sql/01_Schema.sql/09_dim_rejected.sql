@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  09_dim_rejected.sql
 -- Purpose: Holds all rejected loan applications
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 
