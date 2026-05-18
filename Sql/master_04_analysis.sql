@@ -1,28 +1,12 @@
 -- ============================================================
 -- MASTER SCRIPT 04 — SQL ANALYSIS
 -- Project:  Credit Risk Analytics
--- Author:   [Your Name]
--- Date:     [Today's Date]
 --
 -- Description:
---   10 analytical queries answering core business questions
---   a credit lending organisation's risk and portfolio teams
---   ask on a daily basis. All queries join across the star
---   schema and use window functions, CTEs, and aggregations
+--   10 analytical queries answering core business questions. 
+--   All queries join across the star schema and 
+--   use window functions, CTEs, and aggregations
 --   to produce insights ready for Power BI visualisation.
---
--- Queries:
---   00 - Add Foreign Keys
---   01 - Default Rate by Loan Grade
---   02 - Default Rate by FICO Band
---   03 - Default Rate by DTI Band
---   04 - Monthly Loan Issuance Trend
---   05 - Year Over Year Default Rate
---   06 - Default Rate by US State
---   07 - Default Rate by Loan Purpose
---   08 - Default Rate by Employment Length
---   09 - Financial Loss Analysis
---   10 - High Risk Borrower Profile
 --
 -- Key Results:
 --   Overall default rate:        12.86%
@@ -34,7 +18,6 @@
 -- ============================================================
 
 USE lending_club_db;
-
 
 -- ============================================================
 -- QUERY 00 — FOREIGN KEY CONSTRAINTS
@@ -558,7 +541,6 @@ ORDER BY borrower_segment DESC;
 
 -- ============================================================
 -- END OF MASTER ANALYSIS SCRIPT
--- All 10 queries complete.
 -- Results documented in docs/analysis_insights.md
 -- Dashboard built in powerbi/credit_risk_dashboard.pbix
 -- ============================================================
