@@ -1,8 +1,6 @@
 -- ============================================================
 -- MASTER SCRIPT 01 — DATABASE SCHEMA
 -- Project:  Credit Risk Analytics
--- Author:   Oluwadunmininu Deorah Oluremi
--- Date:     10/05/2026
 -- 
 -- Description:
 --   Creates the lending_club_db database and all 9 tables
@@ -32,8 +30,6 @@ USE lending_club_db;
 
 -- ============================================================
 -- SECTION 2 — STAGING TABLE
--- Holds raw CSV data exactly as imported, all columns as TEXT
--- This is the source for all downstream table population
 -- ============================================================
 
 USE lending_club_db;
@@ -196,7 +192,6 @@ CREATE TABLE stg_accepted_loans (
 -- SECTION 3 — DIMENSION TABLES
 -- ============================================================
 
--- dim_borrower: Who borrowed the money
 CREATE TABLE dim_borrower (
     member_id         VARCHAR(50) PRIMARY KEY,
     emp_title         VARCHAR(100),
@@ -209,7 +204,7 @@ CREATE TABLE dim_borrower (
     annual_inc_joint  DECIMAL(15,2)
 );
 
--- dim_loan_details: What the loan looked like at issuance
+-- dim_loan_details:
 CREATE TABLE dim_loan_details (
     loan_id           VARCHAR(50) PRIMARY KEY,
     loan_amnt         DECIMAL(15,2),
@@ -228,7 +223,7 @@ CREATE TABLE dim_loan_details (
     policy_code       VARCHAR(10)
 );
 
--- dim_date: Calendar table for time intelligence in Power BI
+-- dim_date:
 CREATE TABLE dim_date (
     date_id       INT PRIMARY KEY,
     full_date     DATE,
@@ -242,7 +237,7 @@ CREATE TABLE dim_date (
     is_weekend    BOOLEAN
 );
 
--- dim_rejected: Applications that were turned down
+-- dim_rejected:
 CREATE TABLE dim_rejected (
     rejected_id       INT PRIMARY KEY AUTO_INCREMENT,
     amount_requested  DECIMAL(15,2),
@@ -261,7 +256,7 @@ CREATE TABLE dim_rejected (
 -- SECTION 4 — FACT TABLES
 -- ============================================================
 
--- fact_loan_performance: How each loan performed over time
+-- fact_loan_performance:
 CREATE TABLE fact_loan_performance (
     loan_id               VARCHAR(50) PRIMARY KEY,
     borrower_id           INT,
@@ -282,7 +277,7 @@ CREATE TABLE fact_loan_performance (
     pymnt_plan            VARCHAR(5)
 );
 
--- fact_credit_profile: Borrower credit bureau data at application
+-- fact_credit_profile:
 CREATE TABLE fact_credit_profile (
     loan_id                   VARCHAR(50) PRIMARY KEY,
     borrower_id               INT,
@@ -328,7 +323,7 @@ CREATE TABLE fact_credit_profile (
     delinq_amnt               DECIMAL(15,2)
 );
 
--- fact_hardship: Loans placed on hardship programmes
+-- fact_hardship:
 CREATE TABLE fact_hardship (
     loan_id                                  VARCHAR(50) PRIMARY KEY,
     hardship_flag                            VARCHAR(5),
@@ -348,7 +343,7 @@ CREATE TABLE fact_hardship (
     payment_plan_start_date                  DATE
 );
 
--- fact_debt_settlement: Loans settled for less than owed
+-- fact_debt_settlement:
 CREATE TABLE fact_debt_settlement (
     loan_id                 VARCHAR(50) PRIMARY KEY,
     debt_settlement_flag    VARCHAR(5),
