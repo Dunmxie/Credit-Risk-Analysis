@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  04_fact_loan_performance.sql
 -- Purpose: Holds how the loan is performing
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 CREATE TABLE fact_loan_performance (
