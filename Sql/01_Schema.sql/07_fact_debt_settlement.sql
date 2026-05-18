@@ -1,8 +1,6 @@
 -- =============================================================
 -- Script:  07_fact_debt_settlement.sql
 -- Purpose: Holds data for loans that were settled for less than the full amount owed.
--- Author:  Oluwadunmininu Deborah Oluremi
--- Date:    10/5/2026
 -- =============================================================
 
 CREATE TABLE fact_debt_settlement (
